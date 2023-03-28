@@ -12,7 +12,7 @@ public :
     long operatebuffersize = 0;
   };
   static LRP_buffer* createLrpBuffer(LrpBufferInfo info);
-  void synBuffer(long* input, long* output);
+  void synBuffer(long* input, long* output = nullptr);
   ~LRP_buffer();
 
 private:

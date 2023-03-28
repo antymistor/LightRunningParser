@@ -3,6 +3,7 @@
     long* inputbuffer;
     long* outputbuffer;
     long* operatebuffer;
+    LrpBufferInfo info;  
      ~BufferHandle(){
         if(inputbuffer){
             delete[] inputbuffer;
@@ -14,16 +15,16 @@
             delete[] operatebuffer;
         }
      }
-     LrpBufferInfo info;   
   };
  
-  LRP_buffer::LRP_buffer():mModel(std::make_unique<BufferHandle>()){}
+  LRP_buffer::LRP_buffer():mModel(new BufferHandle()){}
   LRP_buffer* LRP_buffer::createLrpBuffer(LrpBufferInfo info){
     auto buffer = new LRP_buffer();
     buffer->mModel->inputbuffer = new long[info.inputsize];
     buffer->mModel->outputbuffer = new long[info.outputsize];
     buffer->mModel->operatebuffer = new long[info.operatebuffersize];
     buffer->mModel->info = info;
+    return buffer;
   }
   void LRP_buffer::synBuffer(long* input, long* output){
     if(input){
