@@ -7,18 +7,18 @@ class LRP_buffer{
   friend class LRP_processor;
 public :
   struct LrpBufferInfo{
-    long inputsize = 0;
-    long outputsize = 0;
-    long operatebuffersize = 0;
+    long inputsize;
+    long outputsize;
+    long operatebuffersize;
   };
   static LRP_buffer* createLrpBuffer(LrpBufferInfo info);
-  void synBuffer(long* input, long* output = nullptr);
+  void synBuffer(int32_t* input, int32_t* output = nullptr);
   ~LRP_buffer();
 
 private:
   LRP_buffer();
   struct BufferHandle;
   std::unique_ptr<BufferHandle> mModel;
-  void getBufferPtr(long** input, long** output, long** operate);
+  void getBufferPtr(int32_t ** bufferbase, long* len);
 };
 #endif
