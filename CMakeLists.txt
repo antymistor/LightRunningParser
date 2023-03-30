@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(LRP LANGUAGES C CXX)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set(CMAKE_CXX_STANDARD 11)
 # ====================================== define marco ======================================
 macro(build_module_clear name)
     set(${name}_cflags "")
@@ -60,12 +61,15 @@ build_clear(LRP)
 message (Module Name   :  ${module_name})
 message (Target Sytem  :  ${CMAKE_SYSTEM_NAME})
 # ====================================== set include path ======================================
-add_includes(LRP)
+add_includes(src/LRP)
+add_includes(src/UTILS)
 #======================================    set src path   ======================================
-set(main ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
-file(GLOB_RECURSE lrpsrc ${CMAKE_CURRENT_SOURCE_DIR}/LRP/*.cpp)
+set(main ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
+file(GLOB_RECURSE lrpsrc ${CMAKE_CURRENT_SOURCE_DIR}/src/LRP/*.cpp)
+file(GLOB_RECURSE lrputils ${CMAKE_CURRENT_SOURCE_DIR}/src/UTILS/*.cpp)
 add_src_files(
         ${main}
         ${lrpsrc}
+        ${lrputils}
 )
 build_binary(LRP)

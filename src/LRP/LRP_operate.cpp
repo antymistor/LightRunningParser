@@ -1,7 +1,7 @@
 #include "LRP_operate.h"
 
 void SET(int32_t* buffer, data* data, long* p){               
-   buffer[data->data0] = ((int32_t)(data->data1) << 16) + data->data2;
+   buffer[data->data0] = ((int32_t)(data->data1) << 16) | (int32_t)data->data2;
    ++*p;
 }
 
@@ -14,11 +14,11 @@ void ADD(int32_t* buffer, data* data, long* p){
    ++*p;
 }
 void DEL(int32_t* buffer, data* data, long* p){
-   buffer[data->data0] = buffer[data->data1] - buffer[data->data2];
+     buffer[data->data0] = buffer[data->data1] - buffer[data->data2];
    ++*p;
 }
 void MUL(int32_t* buffer, data* data, long* p){
-    buffer[data->data0] = buffer[data->data1] * buffer[data->data2];
+    buffer[data->data0] = buffer[data->data1] * buffer[data->data2];                       
    ++*p;
 
 }
