@@ -19,17 +19,16 @@ int main(int argc,char *argv[]){
         buffer = new int32_t[3];
         buffer[0]= 19; buffer[1]=56; buffer[2]=0; 
     }
-    LRP_buffer* lrbuffer = LRP_buffer::createLrpBuffer(33);
-    lrbuffer->synBuffer(buffer,true, inputlen, 0);
+    LRP_buffer* lrbuffer = new LRP_buffer(33);
     LRP_processor* processor = new LRP_processor();
+    lrbuffer->synBuffer(buffer,true, inputlen, 0);
     processor->setBuffer(lrbuffer);
     processor->compileRunable("origin.dat");
     processor->run();
     lrbuffer->synBuffer(buffer + 2, false, 1, inputlen);
-
+    std::cout << "hello world LRP --> ret = "<< buffer[inputlen]  <<std::endl;
     delete lrbuffer;
     delete processor;
     delete[] buffer;
-    std::cout << "hello world LRP --> ret = "<< buffer[inputlen]  <<std::endl;
     return 0;
 }

@@ -1,6 +1,5 @@
 #include "LRP_operate.h"
-
-void SET(int32_t* buffer, data* data, long* p){               
+void SET(int32_t* buffer, data* data, long* p){        
    buffer[data->data0] = ((int32_t)(data->data1) << 16) | (int32_t)data->data2;
    ++*p;
 }
@@ -9,21 +8,20 @@ void COP(int32_t* buffer, data* data, long* p){
    buffer[data->data0] = buffer[data->data1];
    ++*p;
 }
-void ADD(int32_t* buffer, data* data, long* p){
+void ADD(int32_t* buffer, data* data, long* p){     
    buffer[data->data0] = buffer[data->data1] + buffer[data->data2];
    ++*p;
 }
 void DEL(int32_t* buffer, data* data, long* p){
-     buffer[data->data0] = buffer[data->data1] - buffer[data->data2];
+   buffer[data->data0] = buffer[data->data1] - buffer[data->data2];
    ++*p;
 }
 void MUL(int32_t* buffer, data* data, long* p){
-    buffer[data->data0] = buffer[data->data1] * buffer[data->data2];                       
+   buffer[data->data0] = buffer[data->data1] * buffer[data->data2];                       
    ++*p;
-
 }
 void DIV(int32_t* buffer, data* data, long* p){
-    buffer[data->data0] = buffer[data->data1] / buffer[data->data2];
+   buffer[data->data0] = buffer[data->data1] / buffer[data->data2];
    ++*p;
 }
 void MAX(int32_t* buffer, data* data, long* p){
@@ -43,7 +41,7 @@ void OR(int32_t* buffer, data* data, long* p){
    ++*p;
 }
 void NOT(int32_t* buffer, data* data, long* p){
-    buffer[data->data0] = buffer[data->data1] !=0 ;
+   buffer[data->data0] = buffer[data->data1] !=0 ;
    ++*p;
 }
 void BIG(int32_t* buffer, data* data, long* p){

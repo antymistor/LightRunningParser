@@ -37,7 +37,7 @@
      }
      mModel->operateArray = new operate[mModel->operatelen];
      infile.read((char *)(mModel->operateArray), mModel->operatelen* sizeof(operate));
-   //   //print result
+     //print result
    //   for(int i=0 ; i!= mModel->operatelen; ++i){
    //      std::cout << "index = [" << i << "]  "
    //                << (int)(mModel->operateArray[i].op) 
