@@ -1,5 +1,3 @@
-https://bytedance.feishu.cn/docx/EvmrdEYQ9oSuxLxhcqtcXHSnnff
-
 This is an extremely lightweight real-time program analysis runner
 
 How to use the demo：
